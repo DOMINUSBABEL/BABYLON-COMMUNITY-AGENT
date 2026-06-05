@@ -1,4 +1,6 @@
-const { analyzeSentiment } = require('../skills/nlp-analytics/sentiment');
-test('detects positive words', () => {
-    expect(analyzeSentiment('IA local y seguro')).toBe('Positive');
+const { analyzeSentimentAndTone } = require('../skills/nlp-analytics/sentiment');
+
+test('classifies dialectical Hegel-themed posts correctly', () => {
+    const res = analyzeSentimentAndTone("Hegelean dialectics represents Sota Sota!");
+    expect(res.tone).toBe("tech-heavy");
 });
