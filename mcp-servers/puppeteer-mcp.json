@@ -1,9 +1,12 @@
 {
   "mcpServers": {
-    "puppeteer-browser": {
+    "puppeteer-social": {
       "command": "npx",
       "args": ["-y", "@modelcontextprotocol/server-puppeteer"],
-      "env": {}
+      "env": {
+        "PUPPETEER_HEADLESS": "true",
+        "PUPPETEER_MAX_TIMEOUT_MS": "15000"
+      }
     }
   }
 }
