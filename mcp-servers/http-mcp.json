@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "http-fetches": {
+      "command": "npx",
+      "args": ["-y", "mcp-server-http"],
+      "env": {}
+    }
+  }
+}
