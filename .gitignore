@@ -1,0 +1,5 @@
+node_modules/
+posts.json
+browser_profile/
+.DS_Store
+.env

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BABYLON - Community Manager Agent</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="brand">
+                <div class="logo-circle">📢</div>
+                <h2>BABYLON.IA</h2>
+            </div>
+            <p class="tagline">COMMUNITY MANAGER</p>
+            <nav class="menu">
+                <a href="#" class="menu-item active" data-tab="tab-planner">
+                    <span class="icon">📅</span> Planificador Social
+                </a>
+                <a href="#" class="menu-item" data-tab="tab-growth">
+                    <span class="icon">📈</span> Bot de Crecimiento
+                </a>
+                <a href="#" class="menu-item" data-tab="tab-telemetry">
+                    <span class="icon">🧠</span> Telemetría Varego
+                </a>
+            </nav>
+            <div class="sidebar-footer">
+                <div class="status-badge">
+                    <span class="pulse-dot"></span>
+                    <span>Sesión de Red Conectada</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="top-header">
+                <div class="header-info">
+                    <h1>Planificación y Crecimiento de Redes</h1>
+                    <p>Automatización de publicaciones e interacciones sin detección anti-bot.</p>
+                </div>
+                <div class="env-stats">
+                    <div class="stat-bubble">
+                        <span class="label">Seguidores Ganados</span>
+                        <span class="value success-text" id="kpi-followers">1,240</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Tab Planner -->
+            <section id="tab-planner" class="tab-pane active">
+                <div class="grid-layout">
+                    <!-- Composer -->
+                    <div class="card glass-card span-7">
+                        <h3>Crear Publicación / Hilo</h3>
+                        <form id="post-form">
+                            <div class="form-group">
+                                <label for="post-text">Contenido del Post (Soporta variables y tono IA)</label>
+                                <textarea id="post-text" rows="5" placeholder="Escribe el contenido..." required></textarea>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="post-platform">Plataforma</label>
+                                    <select id="post-platform">
+                                        <option value="X/Twitter">X / Twitter</option>
+                                        <option value="LinkedIn">LinkedIn</option>
+                                        <option value="Instagram">Instagram</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="post-tone">Tono del Copiloto IA</label>
+                                    <select id="post-tone">
+                                        <option value="business">Comercial / Vendedor</option>
+                                        <option value="hacker">Hacker / Técnico</option>
+                                        <option value="funny">Humorístico</option>
+                                        <option value="hegel">Académico / Dialéctico</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div style="display: flex; gap: 10px;">
+                                <button type="button" class="btn-secondary" id="btn-polish-ai">✨ Polimentar con IA</button>
+                                <button type="button" class="btn-primary flex-grow-1" id="btn-schedule-post">Programar Publicación</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Side Calendar Queue -->
+                    <div class="card glass-card span-5">
+                        <h3>Cola de Publicaciones</h3>
+                        <div class="posts-queue" id="posts-queue-list">
+                            <!-- Dynamically loaded -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tab Growth -->
+            <section id="tab-growth" class="tab-pane">
+                <div class="grid-layout">
+                    <!-- Bot controller -->
+                    <div class="card glass-card span-6">
+                        <h3>Bot de Crecimiento Orgánico (Nicho)</h3>
+                        <p class="muted-text">Basado en el bot de la diseñadora gráfica: sigue y asiste a personas de tu nicho (pequeñas empresas de hasta 50 trabajadores) para convertirlos en seguidores.</p>
+                        
+                        <div class="bot-switch-container">
+                            <span>Estado del Bot de Seguidores:</span>
+                            <button class="btn-success" id="btn-toggle-bot">ACTIVADO</button>
+                        </div>
+                        
+                        <div class="form-group" style="margin-top: 20px;">
+                            <label for="bot-niche">Nicho / Hashtags Objetivo</label>
+                            <input type="text" id="bot-niche" value="#FinanzasPymes, #IATecnologia, #SaludMentalMedellin">
+                        </div>
+                    </div>
+
+                    <!-- Simulation graph card -->
+                    <div class="card glass-card span-6">
+                        <h3>Tracción de Seguidores (Historial)</h3>
+                        <div class="simulation-chart">
+                            <div class="bar-chart-sim">
+                                <div class="bar-sim" style="height: 20%;" data-val="100"><span>Mes 1</span></div>
+                                <div class="bar-sim" style="height: 45%;" data-val="550"><span>Mes 2</span></div>
+                                <div class="bar-sim" style="height: 75%;" data-val="1000"><span>Mes 3</span></div>
+                                <div class="bar-sim highlight" style="height: 95%;" data-val="1240"><span>Actual</span></div>
+                            </div>
+                        </div>
+                        <p class="muted-text text-center font-sm" style="margin-top: 10px;">Crecimiento exponencial en redes gracias a la automatización de nicho.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tab Telemetry -->
+            <section id="tab-telemetry" class="tab-pane">
+                <div class="grid-layout">
+                    <div class="card glass-card span-12">
+                        <h3>Ciclo Dialéctico Geist & Logs de VAREGO</h3>
+                        <div class="terminal-window">
+                            <div class="terminal-header">
+                                <span class="dot red"></span>
+                                <span class="dot yellow"></span>
+                                <span class="dot green"></span>
+                                <span class="terminal-title">varego_headless_stealth.log</span>
+                            </div>
+                            <div class="terminal-body" id="varego-telemetry">
+                                <div class="log-line"><span class="log-time">[01:14:48]</span> <span class="log-info">SYSTEM:</span> Inicializando Varego Puppeteer Core en Puerto local...</div>
+                                <div class="log-line"><span class="log-time">[01:14:49]</span> <span class="log-info">SYSTEM:</span> Cargando perfil local para evitar captchas...</div>
+                                <div class="log-line"><span class="log-time">[01:14:51]</span> <span class="log-info">TESIS:</span> Petición de publicación en X: "La privacidad de la data..."</div>
+                                <div class="log-line"><span class="log-time">[01:14:52]</span> <span class="log-warn">ANTÍTESIS:</span> Verificación de limitación de tasa API en curso. Evitando scraping del DOM inestable.</div>
+                                <div class="log-line"><span class="log-time">[01:14:54]</span> <span class="log-success">SÍNTESIS:</span> Petición HTTP CreateTweet interceptada. Publicación exitosa (rest_id: 17983489234).</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

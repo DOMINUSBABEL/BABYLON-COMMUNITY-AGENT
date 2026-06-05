@@ -1,0 +1,12 @@
+{
+  "topics": [
+    "Privacidad de datos e inteligencia artificial local",
+    "Temporada comercial de presupuestos en octubre-noviembre",
+    "Falta de límites de tokens de los modelos locales",
+    "Seguridad jurídica en el desarrollo de software y contratos de confidencialidad",
+    "Crecimiento orgánico de redes mediante bots seguros"
+  ],
+  "negative_list": [
+    "BABYLON.IA ya está disponible en la web"
+  ]
+}

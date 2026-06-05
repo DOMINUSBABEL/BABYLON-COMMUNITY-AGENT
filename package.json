@@ -1,0 +1,18 @@
+{
+  "name": "babylon-community-agent",
+  "version": "1.0.0",
+  "description": "Social Media Scheduling & Follower-Growth Bot using VAREGO core. Part of the BABYLON.IA suite.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": ["babylon", "community", "social-media", "varego", "puppeteer"],
+  "author": "DOMINUSBABEL",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.19.2",
+    "cors": "^2.8.5",
+    "socket.io": "^4.7.5"
+  }
+}
