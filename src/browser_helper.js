@@ -1,0 +1,1 @@
+module.exports = { launchBrowser: () => console.log('Stealth launched') };

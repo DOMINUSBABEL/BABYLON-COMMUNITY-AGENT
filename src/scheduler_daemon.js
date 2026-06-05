@@ -1,0 +1,1 @@
+class Daemon { run() { console.log('Daemon polling...'); } }; module.exports = Daemon;

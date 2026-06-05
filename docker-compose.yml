@@ -1,0 +1,9 @@
+version: '3.8'
+services:
+  community-agent:
+    build: .
+    ports:
+      - "4003:4003"
+    volumes:
+      - .:/app
+      - /app/node_modules
