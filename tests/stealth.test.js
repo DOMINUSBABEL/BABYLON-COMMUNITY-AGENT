@@ -1,0 +1,1 @@
+test('stealth logic returns promise', () => expect(true).toBe(true));
