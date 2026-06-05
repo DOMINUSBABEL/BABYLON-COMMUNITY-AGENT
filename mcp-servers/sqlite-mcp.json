@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "sqlite-social": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-sqlite", "--db", "db/posts.sqlite"],
+      "env": {}
+    }
+  }
+}
